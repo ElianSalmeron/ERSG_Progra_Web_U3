@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<head>
+    <title>Hexadecimal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Elian Salmerón">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+    <body>
+        <h1>Conversi&oacute;n decimal a hexadecimal</h1>
+        <form>
+            <label>Introduce un n&uacute;mero: </label>
+            <input type="number" id="num" name="numero" value="">
+            <button type="button" onclick="hexadecimal(num.value)">Convertir</button>
+            <button type="button" onclick="limpiar()">Limpiar todo</button>
+            <button type="button" onclick="cerrar()">Cerrar</button>
+        </form>
+
+        <script>
+            function limpiar(){
+                lista = document.querySelectorAll('p');
+
+                if(lista.length!=0){
+                    i=lista.length-1; 
+                    while(i>-1)
+                        lista[i].parentNode.removeChild(lista[i--]);
+                }
+                else alert("No hay párrafos a eliminar");
+            }
+
+            function hexadecimal(numero){
+                resultado = conversionHexadecimal(numero);
+
+                if(resultado != undefined){ 
+                    parrafo = document.createElement("p");
+                    contenido = document.createTextNode("El número "+numero+" en hexadecimal es "+resultado);
+                    parrafo.appendChild(contenido);
+                    document.body.appendChild(parrafo);
+                    document.getElementById("num").value="";
+                }
+            }
+
+            function conversionHexadecimal(n){
+                cadena = "";
+                residuo = 0;
+
+                if(n != ""){
+                    while(n > 0){
+                        residuo = n%16;
+                        switch(residuo){
+                            case 10:
+                                cadena += "A";
+                            break;
+                            case 11:
+                                cadena += "B";
+                            break;
+                            case 12:
+                                cadena += "C";
+                            break;
+                            case 13:
+                                cadena += "D";
+                            break;
+                            case 14:
+                                cadena += "E";
+                            break;
+                            case 15:
+                                cadena += "F";
+                            break;
+                            default:
+                                cadena += residuo;
+                        }
+                        n = Math.floor(n / 16);
+                    }
+                    return cadena.split("").reverse().join("");
+                }
+                else
+                    alert("Debes ingresar un número");
+            }
+
+            function cerrar(){
+                if (confirm("¿Quieres cerrar la ventana?"))
+                    window.close();
+            }
+        </script>
+    </body>
+</html>

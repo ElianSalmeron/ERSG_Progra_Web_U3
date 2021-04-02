@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="es">
+    
+<head>
+    <title>Binario</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Elian Salmerón">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+    <body>
+        <h1>Conversi&oacute;n decimal a binario</h1>
+        <form>
+            <label>Introduce un n&uacute;mero: </label>
+            <input type="number" id="num" name="numero" value="">
+            <button type="button" onclick="binario(num.value)">Convertir</button>
+            <button type="button" onclick="limpiar()">Limpiar todo</button>
+            <button type="button" onclick="cerrar()">Cerrar</button>
+        </form>
+
+        <script>
+            function limpiar(){
+                lista = document.querySelectorAll('p');
+
+                if(lista.length!=0){
+                    i=lista.length-1; 
+                    while(i>-1)
+                        lista[i].parentNode.removeChild(lista[i--]);
+                }
+                else alert("No hay párrafos a eliminar");
+            }
+
+            function binario(numero){
+                resultado = conversionBinario(numero);
+
+                if(resultado != undefined){ 
+                    parrafo = document.createElement("p");
+                    contenido = document.createTextNode("El número "+numero+" en binario es "+resultado);
+                    parrafo.appendChild(contenido);
+                    document.body.appendChild(parrafo);
+                    document.getElementById("num").value="";
+                }
+            }
+
+            function conversionBinario(n){
+                cadena = "";
+                if(n != ""){ 
+                    while(n > 0){
+                        cadena += n%2;
+                        n = Math.floor(n / 2);
+                    }
+                    return cadena.split("").reverse().join("");
+                }
+                else 
+                    alert("Debes ingresar un número");
+            }
+
+            function cerrar(){
+                if (confirm("¿Quieres cerrar la ventana?"))
+                    window.close();
+            }
+        </script>
+    </body>
+</html>

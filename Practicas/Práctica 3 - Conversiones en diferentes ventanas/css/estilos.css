@@ -1,0 +1,13 @@
+body{ 
+    text-align: center; 
+    background-color: #66B9BF; 
+    color: white;
+}
+
+label { font-size: 1.25em; }
+
+input { font-size: 1em; }
+
+button { font-size: .9em; }
+
+h4 { font-size: 1.25em; } 

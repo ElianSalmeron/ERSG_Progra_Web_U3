@@ -1,0 +1,29 @@
+h1{
+  margin-bottom: 0px;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-top: 0.2em;
+    margin-bottom: 0px;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color:green;
+}
+
+#titulo{
+    border:thin solid silver; 
+    padding:.10em
+}
+
+#informacion{
+    text-align: center;
+    border:thin solid silver; 
+    padding:1em
+}
+
+#back{ text-align: center; }
+
+h4 { font-size: 1.25em; } 

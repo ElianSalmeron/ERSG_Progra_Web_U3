@@ -1,0 +1,25 @@
+body{ background-color: #99CED4; }
+
+.form { text-align: center; }
+
+label { font-size: 1.25em; }
+
+input { font-size: 1em; }
+
+button { font-size: .9em; }
+
+h4 { font-size: 1.25em; } 
+
+p { text-align: center; }
+
+a{ 
+    text-decoration: none; 
+    color: white;
+    border: 2px solid white;
+    font-weight: bold;
+    padding: 8px;
+}
+
+a:hover{
+        background-color: rgba(255, 255, 255, 0.356);
+}
